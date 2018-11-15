@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="samplehs.js"></script>
+
+	<body>
+		<div style="width: 500px;height: 200px;" id="myhs">
+
+		</div>
+		<script>
+			var data = [{
+					name: 'A',
+					value: 20,
+				},
+				{
+					name: 'B',
+					value: 40,
+				}, {
+					name: 'C',
+					value: 50,
+				}, {
+					name: 'D',
+					value: 30,
+				}
+			]
+			SMHS.init(document.getElementById('myhs'), data);
+		</script>
+	</body>
+
+</html>

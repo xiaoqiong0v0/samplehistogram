@@ -152,14 +152,19 @@ var SMHS = {
 				return 0;
 			}
 		});
+		var color_p = 255/(sorts.length-7);
 		for(var i = 0; i < sorts.length; i++) {
 			var intI = Math.floor(i / 7);
-			if(intI == 0 || (intI == 1 && i % 7 == 0)) {
-				spans[sorts[i].index].style.backgroundColor = 'rgb(' + colors[i % 7].r + ',' + colors[i % 7].g + ',' + colors[i % 7].b + ')';
+			var mi = i % 7;
+			if(intI == 0) {
+				spans[sorts[i].index].style.backgroundColor = 'rgb(' + colors[mi].r + ',' + colors[mi].g + ',' + colors[mi].b + ')';
 			} else {
-				var r = colors[i % 7].r - colors[i % 7].r * 5 * intI / 255;
-				var g = colors[i % 7].g - colors[i % 7].g * 5 * intI / 255;
-				var b = colors[i % 7].b - colors[i % 7].b * 5 * intI / 255;
+				var r = colors[mi].r - colors[mi].r * color_p * intI / 255;
+				var g = colors[mi].g - colors[mi].g * color_p * intI / 255;
+				var b = colors[mi].b - colors[mi].b * color_p * intI / 255;
+				r = Math.round(r);
+				g = Math.round(g);
+				b = Math.round(b);
 				spans[sorts[i].index].style.backgroundColor = 'rgb(' + (r > 0 ? r : 0) + ',' + (g > 0 ? g : 0) + ',' + (b > 0 ? b : 0) + ')';
 			}
 		}
